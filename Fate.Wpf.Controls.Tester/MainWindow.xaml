@@ -1,0 +1,33 @@
+﻿<Window x:Class="Fate.Wpf.Controls.Tester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fate.Wpf.Controls.Tester"
+        xmlns:c="clr-namespace:Fate.Wpf.Controls;assembly=Fate.Wpf.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="200">
+            <Separator/>
+            <c:LabelTextBox Label="{Binding LabelText}" Value="{Binding LabelValueText}" Margin="3"/>
+            <Grid Width="100" Height="23" Margin="3">
+                <Button Content="LabelTextBox" Command="{Binding LabelTextBoxCommand}"/>
+                <Button Content="Cancel" Command="{Binding LabelTextBoxCommand.CancelCommand}" Visibility="{Binding LabelTextBoxCommand.Execution.IsNotCompleted, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
+            </Grid>
+            <Separator/>
+            <c:LabelUnitTextBox Label="{Binding LabelUnitText}" Value="{Binding LabelUnitValueText}" Unit="{Binding LabelUnitUnitText}" UnitWidth="Auto" Margin="3"/>
+            <Grid Width="100" Height="23" Margin="3">
+                <Button Content="LabelUnitTextBox" Command="{Binding LabelUnitTextBoxCommand}"/>
+                <Button Content="Cancel" Command="{Binding LabelUnitTextBoxCommand.CancelCommand}" Visibility="{Binding LabelUnitTextBoxCommand.Execution.IsNotCompleted, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
