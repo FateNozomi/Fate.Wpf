@@ -24,21 +24,21 @@ namespace Fate.Wpf.Controls
         public static readonly DependencyProperty LabelProperty =
             DependencyProperty.Register("Label", typeof(string), typeof(LabelTextBox), new PropertyMetadata(default(string)));
 
-        // Using a DependencyProperty as the backing store for Ratio.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty LabelWidthProperty =
-            DependencyProperty.Register("LabelWidth", typeof(GridLength), typeof(LabelTextBox), new PropertyMetadata(new GridLength(1, GridUnitType.Star)));
-
         // Using a DependencyProperty as the backing store for LabelAlignment.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LabelAlignmentProperty =
-            DependencyProperty.Register("LabelAlignment", typeof(HorizontalAlignment), typeof(LabelTextBox), new PropertyMetadata(HorizontalAlignment.Left));
+            DependencyProperty.Register("LabelAlignment", typeof(HorizontalAlignment), typeof(LabelTextBox), new PropertyMetadata(default(HorizontalAlignment)));
+
+        // Using a DependencyProperty as the backing store for Ratio.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LabelWidthProperty =
+            DependencyProperty.Register("LabelWidth", typeof(GridLength), typeof(LabelTextBox), new PropertyMetadata(GridLength.Auto));
+
+        // Using a DependencyProperty as the backing store for LabelMargin.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LabelMarginProperty =
+            DependencyProperty.Register("LabelMargin", typeof(Thickness), typeof(LabelTextBox), new PropertyMetadata(default(Thickness)));
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(string), typeof(LabelTextBox), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
-
-        // Using a DependencyProperty as the backing store for ValueWidth.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ValueWidthProperty =
-            DependencyProperty.Register("ValueWidth", typeof(GridLength), typeof(LabelTextBox), new PropertyMetadata(new GridLength(1, GridUnitType.Star)));
 
         // Using a DependencyProperty as the backing store for ValueReadOnly.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueReadOnlyProperty =
@@ -46,7 +46,11 @@ namespace Fate.Wpf.Controls
 
         // Using a DependencyProperty as the backing store for TextAlignment.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueAlignmentProperty =
-            DependencyProperty.Register("ValueAlignment", typeof(TextAlignment), typeof(LabelTextBox), new PropertyMetadata(TextAlignment.Left));
+            DependencyProperty.Register("ValueAlignment", typeof(TextAlignment), typeof(LabelTextBox), new PropertyMetadata(default(TextAlignment)));
+
+        // Using a DependencyProperty as the backing store for ValueWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ValueWidthProperty =
+            DependencyProperty.Register("ValueWidth", typeof(GridLength), typeof(LabelTextBox), new PropertyMetadata(GridLength.Auto));
 
         // Using a DependencyProperty as the backing store for ValueMargin.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueMarginProperty =
@@ -63,28 +67,28 @@ namespace Fate.Wpf.Controls
             set { SetValue(LabelProperty, value); }
         }
 
-        public GridLength LabelWidth
-        {
-            get { return (GridLength)GetValue(LabelWidthProperty); }
-            set { SetValue(LabelWidthProperty, value); }
-        }
-
         public HorizontalAlignment LabelAlignment
         {
             get { return (HorizontalAlignment)GetValue(LabelAlignmentProperty); }
             set { SetValue(LabelAlignmentProperty, value); }
         }
 
+        public GridLength LabelWidth
+        {
+            get { return (GridLength)GetValue(LabelWidthProperty); }
+            set { SetValue(LabelWidthProperty, value); }
+        }
+
+        public Thickness LabelMargin
+        {
+            get { return (Thickness)GetValue(LabelMarginProperty); }
+            set { SetValue(LabelMarginProperty, value); }
+        }
+
         public string Value
         {
             get { return (string)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
-        }
-
-        public GridLength ValueWidth
-        {
-            get { return (GridLength)GetValue(ValueWidthProperty); }
-            set { SetValue(ValueWidthProperty, value); }
         }
 
         public bool ValueReadOnly
@@ -97,6 +101,12 @@ namespace Fate.Wpf.Controls
         {
             get { return (TextAlignment)GetValue(ValueAlignmentProperty); }
             set { SetValue(ValueAlignmentProperty, value); }
+        }
+
+        public GridLength ValueWidth
+        {
+            get { return (GridLength)GetValue(ValueWidthProperty); }
+            set { SetValue(ValueWidthProperty, value); }
         }
 
         public Thickness ValueMargin

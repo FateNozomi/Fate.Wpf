@@ -6,25 +6,26 @@
              xmlns:local="clr-namespace:Fate.Wpf.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="23" d:DesignWidth="200"
-             x:Name="Self">
+             x:Name="Control">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding LabelWidth, ElementName=Self}"/>
-            <ColumnDefinition Width="{Binding ValueWidth, ElementName=Self}"/>
+            <ColumnDefinition Width="{Binding LabelWidth, ElementName=Control}"/>
+            <ColumnDefinition Width="{Binding ValueWidth, ElementName=Control}"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock
             Grid.Column="0"
-            Text="{Binding Label, ElementName=Self}"
-            HorizontalAlignment="{Binding LabelAlignment, ElementName=Self}"
+            Text="{Binding Label, ElementName=Control}"
+            HorizontalAlignment="{Binding LabelAlignment, ElementName=Control}"
+            Margin="{Binding LabelMargin, ElementName=Control}"
             VerticalAlignment="Center"
             TextWrapping="Wrap"/>
         <TextBox
             Grid.Column="1"
-            Text="{Binding Value, ElementName=Self, UpdateSourceTrigger=PropertyChanged}"
-            IsReadOnly="{Binding ValueReadOnly, ElementName=Self}"
-            TextAlignment="{Binding ValueAlignment, ElementName=Self}"
-            Margin="{Binding ValueMargin, ElementName=Self}"
+            Text="{Binding Value, ElementName=Control, UpdateSourceTrigger=PropertyChanged}"
+            IsReadOnly="{Binding ValueReadOnly, ElementName=Control}"
+            TextAlignment="{Binding ValueAlignment, ElementName=Control}"
+            Margin="{Binding ValueMargin, ElementName=Control}"
             VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

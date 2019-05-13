@@ -9,6 +9,16 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style TargetType="c:LabelTextBox">
+            <Setter Property="LabelWidth" Value="*"/>
+            <Setter Property="ValueWidth" Value="*"/>
+        </Style>
+        <Style TargetType="c:LabelUnitTextBox">
+            <Setter Property="LabelWidth" Value="*"/>
+            <Setter Property="ValueWidth" Value="*"/>
+            <Setter Property="UnitWidth" Value="*"/>
+            <Setter Property="UnitMargin" Value="3,0"/>
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <local:MainWindowViewModel/>
@@ -23,7 +33,7 @@
                 <Button Content="Cancel" Command="{Binding LabelTextBoxCommand.CancelCommand}" Visibility="{Binding LabelTextBoxCommand.Execution.IsNotCompleted, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
             </Grid>
             <Separator/>
-            <c:LabelUnitTextBox Label="{Binding LabelUnitText}" Value="{Binding LabelUnitValueText}" Unit="{Binding LabelUnitUnitText}" UnitWidth="Auto" Margin="3"/>
+            <c:LabelUnitTextBox Label="{Binding LabelUnitText}" Value="{Binding LabelUnitValueText}" Unit="{Binding LabelUnitUnitText}" Margin="3"/>
             <Grid Width="100" Height="23" Margin="3">
                 <Button Content="LabelUnitTextBox" Command="{Binding LabelUnitTextBoxCommand}"/>
                 <Button Content="Cancel" Command="{Binding LabelUnitTextBoxCommand.CancelCommand}" Visibility="{Binding LabelUnitTextBoxCommand.Execution.IsNotCompleted, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
