@@ -22,7 +22,7 @@ namespace Fate.Wpf.Controls
     {
         // Using a DependencyProperty as the backing store for Image.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageProperty =
-            DependencyProperty.Register("Image", typeof(BitmapSource), typeof(ImageControl), new PropertyMetadata(default(BitmapSource), FitImageCallback));
+            DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageControl), new PropertyMetadata(default(ImageSource), FitImageCallback));
 
         // Using a DependencyProperty as the backing store for Scale.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ScaleProperty =
@@ -52,9 +52,9 @@ namespace Fate.Wpf.Controls
             InitializeComponent();
         }
 
-        public BitmapSource Image
+        public ImageSource Image
         {
-            get { return (BitmapSource)GetValue(ImageProperty); }
+            get { return (ImageSource)GetValue(ImageProperty); }
             set { SetValue(ImageProperty, value); }
         }
 
